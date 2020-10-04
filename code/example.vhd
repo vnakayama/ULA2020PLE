@@ -58,15 +58,5 @@ ARCHITECTURE dataflow of ula IS
 			END IF;
 			
 		END PROCESS;
-		
-		
---		add0: somador1 PORT MAP (a(0), b(0), carry_in, sum(0), co(0));
---		ci(1) <= co(0);
---		add1: somador1 PORT MAP (a(1), b(1), ci(1), sum(1), co(1));
---		ci(2) <= co(1);
---		add2: somador1 PORT MAP (a(2), b(2), ci(2), sum(2), co(2));
---		ci(3) <= co(2);
---		add3: somador1 PORT MAP (a(3), b(3), ci(3), sum(3), carry_out);
---			
 
 END ARCHITECTURE;
