@@ -2,33 +2,83 @@
 
 \subsection*{2.1 Funções Implementadas}
 
-\\\subsubsection*{\textbf{Parte Lógica}}
+\\\subsubsection*{2.1.1. Parte Lógica}
 \newline
-Foram implementadas quatro funções lógicas : AND, OR, NOT e XOR, aplicadas bit-a-bit no vetor de entrada. Essas operações foram identificadas no código como vetores de quatro bits, classificadas da maneira abaixo.
+Foram implementadas quatro funções lógicas : \textit{AND}, \textit{OR}, \textit{NOT} e \textit{XOR}, aplicadas bit-a-bit no vetor de entrada. Essas operações são identificadas através de um vetor de seleção de três bits, com os códigos abaixo.
 
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|}
-     \hline Operaçāo & Vetor \\
-     \hline AND & 0000\\
-     \hline OR & 0001\\
-     \hline NOT & 0010\\
-     \hline XOR & 0011\\
+     \hline \textbf{Operaçāo} & \textbf{Vetor} \\
+     \hline AND & 000\\
+     \hline OR & 001\\
+     \hline NOT & 010\\
+     \hline XOR & 011\\
     \hline
 
 \end{tabular}
-    \caption{Funções Lógicas e Classificaçāo Correspondente no Código}
-    \label{tab:my_label}
+    \caption{Funções lógicas e correspondente no vetor de seleção \texttt{op}.}
+    \label{tab:t1}
 \end{table}
 
+As operações foram efetivadas da seguinte maneira: criou-se uma entidade \texttt{ULA}\textbf{***APENDICE***} e um vetor de 3 bits, chamado de \texttt{op},  responsável pela seleçāo da operaçāo a ser realizada. Desta maneira, a partir da inserçāo de dois vetor de entrada de 4 bits e da operaçāo selecionada pelo vetor \texttt{op}, a \texttt{ULA} realiza as funções lógicas citadas acima. 
 
 
+\\\subsubsection*{2.1.2. Parte Aritmética}
 
-\\\subsubsection*{\textbf{Parte Aritmética}}
+As Funções Aritméticas implementadas foram: \textit{Soma}, \textit{Subtraçāo}, \textit{Multiplicaçāo} e \textit{Complemento de 2}. Também podemos ver na tabela abaixo a maneira que relacionamos cada uma dessas operações a um número no vetor \texttt{op} de 3 bits.
 
-\subsection*{2.2. Módulo Exemplo}
-\inputminted{vhdl}{code/example.vhd}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+     \hline \textbf{Operaçāo} & \textbf{Vetor} \\
+     \hline Soma & 100\\
+     \hline Subtração & 101\\
+     \hline Multiplicação & 110\\
+     \hline Complemento de 2 & 111\\
+    \hline
 
+\end{tabular}
+    \caption{Funções aritméticas e correspondente no vetor de seleção \texttt{op}.}
+    \label{tab:t2}
+\end{table}
+
+\subsection*{2.2. Módulos Básicos}
+
+\subsubsection*{2.2.1. Somador de 1 bit}
+
+\subsubsection*{2.2.3. \textit{Full-adder}}
+
+\subsubsection*{2.2.3. Contador}
+
+\subsection*{2.3. Funções Lógicas}
+\subsubsection*{2.3.1. \textit{AND}}
+\subsubsection*{2.3.2. \textit{OR}}
+\subsubsection*{2.3.3. \textit{NOT}}
+\subsubsection*{2.3.4. \textit{XOR}}
+
+\subsection*{2.4. Funções Aritméticas}
+
+\subsubsection*{2.4.1. Funçāo Soma}
+
+A função soma foi a primeira Função Aritmética a ser implementada na \textbf{ULA}. Essa escolha se deu por conta das Fun
+
+
+\subsubsection*{2.4.2. Funçāo Complemento de 2}
+
+\subsubsection*{2.4.3. Funçāo Subtraçāo}
+
+Como a \textit{Funçāo Soma} foi a primeira ser implementada, implementamos \textit{Funçāo Complemento de 2} logo em seguida justamente para tornarmos mais fácil a implementaçāo da \textit{Funçāo Subtraçāo}. Pois dessa maneira, podemos simplesmente utilizar esses dois módulos para implementar a subtraçāo, visto que esta é a soma de um número com o Complemento de 2 do outro, sendo este último encontrado com módulo negativo. Da mesma maneira que fizemos na implementaçāo da \textit{Função Soma}, aqui fazemos um Port Map com entradas para os dois números a serem subtraídos, bem como uma saída para o resultado. \textbf{***APENDICE***} Por fim, foi considerado nesse módulo tanto o carry out quanto o overflow.
+
+O funcionamento da \textbf{Função Subtração} se dá da seguinte maneira: primeiramente a entrada \textbf{b} do subtrator é convertida para complemento de dois e renomeada como \textbf{c2b}. Por fim, o valor de c2b é somado ao vetor da entrada \textbf{a}, tendo assim o resultado retornado pela função.
+
+
+\subsubsection*{2.4.4. Funçāo Multiplicaçāo}
+
+% \inputminted{vhdl}{code/example.vhd}
+
+% Incluir prints das funções (talvez nem seja necessário, acho que só o código já seria legal)
+%
 % \begin{figure}[H]
 %     \centering
 %     \includegraphics{}
